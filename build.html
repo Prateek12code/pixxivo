@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Pixxivo Builder Log | Building X1 in Public</title>
+
+    <meta
+      name="description"
+      content="Follow the Pixxivo Builder Log — hardware, software, design and research updates from the development of Pixxivo X1."
+    />
+
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href="https://pixxivo.com/build.html" />
+
+    <meta property="og:title" content="Pixxivo Builder Log" />
+
+    <meta
+      property="og:description"
+      content="Follow X1 as it moves from experiment to working hardware."
+    />
+
+    <meta property="og:type" content="website" />
+
+    <meta property="og:url" content="https://pixxivo.com/build.html" />
+
+    <meta
+      property="og:image"
+      content="https://pixxivo.com/assets/og-image.png"
+    />
+
+    <link rel="icon" href="/assets/favicon.ico" />
+
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+
+    <script type="module" src="/src/main.js"></script>
+  </head>
+
+  <body data-page="build">
+    <!-- ======================================================
+         LOADER
+    ======================================================= -->
+
+    <div class="loader">
+      <div class="loader-grid"></div>
+
+      <div class="loader-glow"></div>
+
+      <div class="loader-content">
+        <div class="loader-mark">PX</div>
+
+        <div class="loader-text">
+          <span> PIXXIVO </span>
+
+          <strong> BUILDER LOG </strong>
+        </div>
+
+        <div class="loader-spectrum">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================
+         GLOBAL
+    ======================================================= -->
+
+    <div class="noise"></div>
+
+    <div class="cursor-glow"></div>
+
+    <!-- ======================================================
+         NAVIGATION
+    ======================================================= -->
+
+    <header class="site-header">
+      <nav class="nav-shell">
+        <a href="/" class="brand" aria-label="Pixxivo home">
+          <div class="brand-mark">PX</div>
+
+          <span> PIXXIVO </span>
+        </a>
+
+        <div class="nav-links">
+          <a href="/x1.html" data-nav-page="x1"> X1 </a>
+
+          <a href="/build.html" data-nav-page="build"> Build </a>
+
+          <a href="/support.html" data-nav-page="support"> Signal Wall </a>
+
+          <a href="/contact.html" data-nav-page="contact"> Contact </a>
+        </div>
+
+        <a href="#follow" class="nav-cta"> Follow the build </a>
+
+        <button
+          class="menu-button"
+          data-menu-btn
+          aria-label="Open navigation"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+
+      <div class="mobile-menu" data-mobile-menu>
+        <a href="/x1.html"> X1 </a>
+
+        <a href="/build.html"> Builder Log </a>
+
+        <a href="/support.html"> Signal Wall </a>
+
+        <a href="/contact.html"> Contact </a>
+
+        <a href="#follow" class="mobile-menu-cta"> Follow the build </a>
+      </div>
+    </header>
+
+    <main>
+      <!-- ====================================================
+           BUILD INDEX
+      ===================================================== -->
+
+      <div data-build-index>
+        <!-- HERO -->
+
+        <section class="build-hero">
+          <div class="build-hero-grid"></div>
+
+          <div class="container build-hero-inner">
+            <div>
+              <div class="eyebrow" data-reveal>
+                <span class="live-dot"></span>
+
+                PIXXIVO / BUILDING IN PUBLIC
+              </div>
+
+              <h1 data-reveal-line>
+                Builder
+                <br />
+                Log.
+              </h1>
+            </div>
+
+            <div class="build-hero-copy" data-reveal>
+              <p>
+                Hardware doesn't appear fully formed. X1 is being designed,
+                assembled, tested, broken, redesigned and tested again.
+              </p>
+
+              <p>This is the record of that process.</p>
+            </div>
+          </div>
+
+          <div class="build-hero-bottom">
+            <span> HARDWARE / SOFTWARE / DESIGN / RESEARCH </span>
+
+            <span> UPDATED AS WE BUILD </span>
+          </div>
+        </section>
+
+        <!-- ==================================================
+             FILTERS
+        =================================================== -->
+
+        <section class="build-filter-section">
+          <div class="container">
+            <div class="build-filter-bar" data-reveal>
+              <span> FILTER </span>
+
+              <div class="build-filters">
+                <button type="button" class="active" data-build-filter="ALL">
+                  All
+                </button>
+
+                <button type="button" data-build-filter="HARDWARE">
+                  Hardware
+                </button>
+
+                <button type="button" data-build-filter="SOFTWARE">
+                  Software
+                </button>
+
+                <button type="button" data-build-filter="DESIGN">Design</button>
+
+                <button type="button" data-build-filter="RESEARCH">
+                  Research
+                </button>
+
+                <button type="button" data-build-filter="TESTING">
+                  Testing
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================
+             LOG LIST
+        =================================================== -->
+
+        <section class="build-index-section">
+          <div class="container">
+            <div class="build-index-heading">
+              <div>
+                <span class="section-index" data-reveal>
+                  DEVELOPMENT RECORD
+                </span>
+
+                <h2 data-reveal-line>
+                  Latest
+                  <br />
+                  from the bench.
+                </h2>
+              </div>
+
+              <div class="build-index-note" data-reveal>
+                <span> WHAT COUNTS AS AN UPDATE? </span>
+
+                <p>
+                  A PCB revision, firmware milestone, failed test, enclosure
+                  iteration, calibration change or anything else that
+                  meaningfully moves X1 forward.
+                </p>
+              </div>
+            </div>
+
+            <div class="build-list" data-build-list>
+              <div class="content-loading">Loading Builder Log...</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================
+             PRINCIPLE
+        =================================================== -->
+
+        <section class="build-principle-section">
+          <div class="container">
+            <div class="build-principle" data-reveal>
+              <div>
+                <span> PIXXIVO / BUILD PRINCIPLE </span>
+              </div>
+
+              <blockquote>
+                Show the work.
+                <br />
+                Not just the result.
+              </blockquote>
+
+              <p>
+                Successful experiments are useful. Failed ones often teach more.
+                The Builder Log exists to show both.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================
+             STATUS
+        =================================================== -->
+
+        <section class="development-section">
+          <div class="container">
+            <div class="section-heading">
+              <span class="section-index" data-reveal>
+                X1 / CURRENT STATE
+              </span>
+
+              <div>
+                <h2 data-reveal-line>What is being worked on now.</h2>
+
+                <p data-reveal>
+                  The development board changes automatically when the X1 status
+                  is updated internally.
+                </p>
+              </div>
+            </div>
+
+            <div class="development-list" data-development-list>
+              <div class="content-loading">Loading development status...</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================
+             NEWSLETTER
+        =================================================== -->
+
+        <section class="join-section" id="follow">
+          <div class="join-glow"></div>
+
+          <div class="container join-grid">
+            <div class="join-copy">
+              <span class="section-index light" data-reveal>
+                BUILDER LOG / EMAIL
+              </span>
+
+              <h2 class="light" data-reveal-line>
+                Don't refresh this page every day.
+              </h2>
+
+              <p class="light-muted" data-reveal>
+                When a Builder Log is important enough, we'll send it directly
+                to you.
+              </p>
+
+              <div class="join-promise" data-reveal>
+                <div>
+                  <span> 01 </span>
+
+                  <p>Major hardware revisions</p>
+                </div>
+
+                <div>
+                  <span> 02 </span>
+
+                  <p>Important test results</p>
+                </div>
+
+                <div>
+                  <span> 03 </span>
+
+                  <p>Pilot milestones</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="newsletter-panel" data-reveal>
+              <div class="newsletter-panel-top">
+                <span> BUILD / UPDATES </span>
+
+                <span> OPTIONAL </span>
+              </div>
+
+              <form
+                class="newsletter-form"
+                data-newsletter-form
+                data-newsletter-source="builder-log"
+              >
+                <label>
+                  <span> YOUR EMAIL </span>
+
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                  />
+                </label>
+
+                <button type="submit" class="newsletter-submit">
+                  Follow the build
+
+                  <span> → </span>
+                </button>
+              </form>
+
+              <p class="newsletter-note">
+                No verification. No weekly schedule. Only meaningful updates.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ====================================================
+           SINGLE BUILD LOG VIEW
+      ===================================================== -->
+
+      <div data-build-single hidden>
+        <section class="build-single-shell">
+          <div class="container">
+            <div data-build-article class="build-article-container">
+              <div class="content-loading">Loading build update...</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="build-single-follow">
+          <div class="container">
+            <div class="build-single-follow-inner">
+              <div>
+                <span> FOLLOW PIXXIVO </span>
+
+                <h2>Get the next update by email.</h2>
+              </div>
+
+              <form
+                class="newsletter-form newsletter-form-inline"
+                data-newsletter-form
+                data-newsletter-source="build-article"
+              >
+                <label>
+                  <span> EMAIL </span>
+
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                  />
+                </label>
+
+                <button type="submit" class="newsletter-submit">
+                  Subscribe →
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ====================================================
+           FOOTER
+      ===================================================== -->
+
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-top">
+            <a href="/" class="footer-brand">
+              <div class="brand-mark">PX</div>
+
+              <span> PIXXIVO </span>
+            </a>
+
+            <div class="footer-state">
+              <span class="live-dot"></span>
+
+              BUILDING X1
+            </div>
+          </div>
+
+          <div class="footer-grid">
+            <div>
+              <span> PRODUCT </span>
+
+              <a href="/x1.html"> X1 </a>
+
+              <a href="/build.html"> Builder Log </a>
+            </div>
+
+            <div>
+              <span> COMMUNITY </span>
+
+              <a href="/support.html"> Signal Wall </a>
+
+              <a href="#follow"> Newsletter </a>
+            </div>
+
+            <div>
+              <span> COMPANY </span>
+
+              <a href="/contact.html"> Contact </a>
+            </div>
+
+            <div class="footer-location">
+              <span> STATUS </span>
+
+              <strong> ACTIVE </strong>
+
+              <small> Hardware development in progress. </small>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <span>
+              ©
+              <span data-current-year></span>
+              PIXXIVO
+            </span>
+
+            <span> BUILDER LOG / X1 DEVELOPMENT </span>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <div class="toast" data-toast></div>
+  </body>
+</html>

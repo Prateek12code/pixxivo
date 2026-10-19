@@ -1,15 +1,3 @@
-import { defineConfig } from "vite";
-import { resolve } from "node:path";
-
-export default defineConfig({
-  build: {
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, "index.html"),
-        x1: resolve(__dirname, "x1.html"),
-        support: resolve(__dirname, "support.html"),
-        contact: resolve(__dirname, "contact.html"),
-      },
-    },
-  },
-});
+import {defineConfig} from 'vite';
+import {resolve} from 'node:path';
+export default defineConfig({build:{sourcemap:false,rollupOptions:{input:Object.fromEntries(['lab','index','x1','contact','journal','post','research','dispatch','unsubscribe','studio','support','privacy','terms'].map(name=>[name,resolve(import.meta.dirname,`${name}.html`)]))}}});

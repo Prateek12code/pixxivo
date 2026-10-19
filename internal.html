@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Pixxivo Internal</title>
+
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="icon" href="/assets/favicon.ico" />
+
+    <script type="module" src="/src/main.js"></script>
+  </head>
+
+  <body data-page="internal">
+    <!-- ======================================================
+         GLOBAL
+    ======================================================= -->
+
+    <div class="noise"></div>
+
+    <div class="cursor-glow"></div>
+
+    <!-- ======================================================
+         INTERNAL NAV
+    ======================================================= -->
+
+    <header class="internal-header">
+      <div class="internal-nav">
+        <a href="/" class="brand">
+          <div class="brand-mark">PX</div>
+
+          <span> PIXXIVO </span>
+        </a>
+
+        <div class="internal-nav-state">
+          <span class="live-dot"></span>
+
+          INTERNAL
+        </div>
+
+        <button type="button" class="internal-logout" data-admin-logout>
+          Sign out
+        </button>
+      </div>
+    </header>
+
+    <main class="internal-main">
+      <!-- ====================================================
+           AUTH
+      ===================================================== -->
+
+      <section class="internal-auth" data-admin-auth>
+        <div class="internal-auth-card">
+          <div class="internal-auth-top">
+            <div class="brand-mark large">PX</div>
+
+            <span> PIXXIVO / INTERNAL </span>
+          </div>
+
+          <h1>Control room.</h1>
+
+          <p>
+            Private access for Pixxivo development publishing and project
+            status.
+          </p>
+
+          <form class="internal-login-form" data-admin-login-form>
+            <label>
+              <span> ADMIN EMAIL </span>
+
+              <input
+                type="email"
+                name="email"
+                placeholder="admin@pixxivo.com"
+                autocomplete="email"
+                required
+              />
+            </label>
+
+            <label>
+              <span> PASSWORD </span>
+
+              <input
+                type="password"
+                name="password"
+                placeholder="••••••••••"
+                autocomplete="current-password"
+                required
+              />
+            </label>
+
+            <button type="submit" class="internal-login-button">
+              Enter Pixxivo
+
+              <span> → </span>
+            </button>
+          </form>
+
+          <div class="internal-auth-note">
+            <span> SECURITY </span>
+
+            <p>
+              Publishing permissions are checked again server-side before any
+              Builder Log or newsletter can be sent.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================
+           DASHBOARD
+      ===================================================== -->
+
+      <section class="internal-dashboard" data-admin-dashboard hidden>
+        <div class="internal-shell">
+          <!-- HEADER -->
+
+          <div class="internal-dashboard-header">
+            <div>
+              <span class="internal-kicker"> PIXXIVO / INTERNAL </span>
+
+              <h1>Build control.</h1>
+            </div>
+
+            <div class="internal-dashboard-status">
+              <span class="live-dot"></span>
+
+              SYSTEM ACTIVE
+            </div>
+          </div>
+
+          <!-- ==================================================
+               MAIN GRID
+          =================================================== -->
+
+          <div class="internal-grid">
+            <!-- ================================================
+                 NEW BUILD LOG
+            ================================================= -->
+
+            <section class="internal-panel internal-build-panel">
+              <div class="internal-panel-heading">
+                <div>
+                  <span> 01 </span>
+
+                  <h2>Publish Builder Log</h2>
+                </div>
+
+                <small> PUBLIC </small>
+              </div>
+
+              <form class="internal-build-form" data-admin-build-form>
+                <label>
+                  <span> TITLE </span>
+
+                  <input
+                    type="text"
+                    name="title"
+                    placeholder="First assembled X1 PCB"
+                    maxlength="160"
+                    required
+                  />
+                </label>
+
+                <label>
+                  <span> SLUG </span>
+
+                  <input
+                    type="text"
+                    name="slug"
+                    placeholder="first-assembled-x1-pcb"
+                    maxlength="180"
+                  />
+
+                  <small> Generated automatically from the title. </small>
+                </label>
+
+                <div class="internal-form-two">
+                  <label>
+                    <span> CATEGORY </span>
+
+                    <select name="category" required>
+                      <option value="HARDWARE">Hardware</option>
+
+                      <option value="SOFTWARE">Software</option>
+
+                      <option value="DESIGN">Design</option>
+
+                      <option value="RESEARCH">Research</option>
+
+                      <option value="TESTING">Testing</option>
+
+                      <option value="MANUFACTURING">Manufacturing</option>
+
+                      <option value="GENERAL">General</option>
+                    </select>
+                  </label>
+
+                  <label>
+                    <span> IMAGE URL </span>
+
+                    <input
+                      type="text"
+                      name="image_url"
+                      placeholder="/assets/build/pcb-v2.jpg"
+                    />
+                  </label>
+                </div>
+
+                <label>
+                  <span> SUMMARY </span>
+
+                  <textarea
+                    name="summary"
+                    rows="4"
+                    maxlength="500"
+                    placeholder="The first assembled X1 PCB has entered validation..."
+                    required
+                  ></textarea>
+
+                  <small> Used on the homepage and Builder Log cards. </small>
+                </label>
+
+                <label>
+                  <span> FULL UPDATE </span>
+
+                  <textarea
+                    name="body"
+                    rows="12"
+                    placeholder="Write the full Builder Log here..."
+                  ></textarea>
+                </label>
+
+                <label class="internal-check-row">
+                  <input type="checkbox" name="send_newsletter" />
+
+                  <span class="custom-check"></span>
+
+                  <div>
+                    <strong> Email subscribers </strong>
+
+                    <small>
+                      Send this Builder Log to active Pixxivo newsletter
+                      subscribers.
+                    </small>
+                  </div>
+                </label>
+
+                <div class="internal-publish-warning">
+                  <span> ⚠ </span>
+
+                  <p>
+                    Publishing immediately makes this update public. If
+                    newsletter is enabled, emails will also begin sending
+                    immediately.
+                  </p>
+                </div>
+
+                <button type="submit" class="internal-primary-button">
+                  Publish update
+
+                  <span> → </span>
+                </button>
+              </form>
+            </section>
+
+            <!-- ================================================
+                 DEVELOPMENT STATUS
+            ================================================= -->
+
+            <section class="internal-panel">
+              <div class="internal-panel-heading">
+                <div>
+                  <span> 02 </span>
+
+                  <h2>X1 Development</h2>
+                </div>
+
+                <small> LIVE </small>
+              </div>
+
+              <p class="internal-panel-description">
+                These values appear automatically on the homepage, X1 page and
+                Builder Log.
+              </p>
+
+              <form class="internal-status-form" data-admin-status-form>
+                <div class="internal-status-list" data-admin-status-list>
+                  <div class="content-loading">
+                    Loading development state...
+                  </div>
+                </div>
+
+                <button type="submit" class="internal-secondary-button">
+                  Save development status
+                </button>
+              </form>
+            </section>
+
+            <!-- ================================================
+                 EXISTING BUILDS
+            ================================================= -->
+
+            <section class="internal-panel internal-build-history">
+              <div class="internal-panel-heading">
+                <div>
+                  <span> 03 </span>
+
+                  <h2>Published Builds</h2>
+                </div>
+
+                <small> HISTORY </small>
+              </div>
+
+              <div class="internal-build-list" data-admin-build-list>
+                <div class="content-loading">Loading Builder Logs...</div>
+              </div>
+            </section>
+
+            <!-- ================================================
+                 QUICK LINKS
+            ================================================= -->
+
+            <section class="internal-panel">
+              <div class="internal-panel-heading">
+                <div>
+                  <span> 04 </span>
+
+                  <h2>Quick access</h2>
+                </div>
+              </div>
+
+              <div class="internal-links">
+                <a href="/" target="_blank" rel="noopener">
+                  <span> WEBSITE </span>
+
+                  <strong> Homepage </strong>
+
+                  <small> Open ↗ </small>
+                </a>
+
+                <a href="/x1.html" target="_blank" rel="noopener">
+                  <span> PRODUCT </span>
+
+                  <strong> X1 </strong>
+
+                  <small> Open ↗ </small>
+                </a>
+
+                <a href="/build.html" target="_blank" rel="noopener">
+                  <span> DEVELOPMENT </span>
+
+                  <strong> Builder Log </strong>
+
+                  <small> Open ↗ </small>
+                </a>
+
+                <a href="/support.html" target="_blank" rel="noopener">
+                  <span> COMMUNITY </span>
+
+                  <strong> Signal Wall </strong>
+
+                  <small> Open ↗ </small>
+                </a>
+              </div>
+            </section>
+          </div>
+
+          <!-- ==================================================
+               FOOTER
+          =================================================== -->
+
+          <footer class="internal-footer">
+            <span> PIXxIVO INTERNAL </span>
+
+            <span> AUTHENTICATED CONTROL SURFACE </span>
+          </footer>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" data-toast></div>
+  </body>
+</html>

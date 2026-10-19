@@ -1,0 +1,9 @@
+# Newsletter endpoints handle authorization in their own code.
+[functions.newsletter-subscribe]
+verify_jwt = false
+[functions.newsletter-unsubscribe]
+verify_jwt = false
+[functions.newsletter-dispatch]
+verify_jwt = false
+[functions.contact-email]
+verify_jwt = false

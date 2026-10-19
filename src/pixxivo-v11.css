@@ -1,0 +1,8 @@
+/* PIX XIVO V11 – only functional dialog enhancements; no new homepage sections. */
+.px11-dialog-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+.px11-dialog-actions button{min-height:42px;cursor:pointer;border-radius:999px;padding:9px 15px;font:800 10px/1.3 "IBM Plex Mono",monospace;letter-spacing:.075em;transition:background .22s,color .22s,border-color .22s}
+.px11-dialog-actions [data-px11-copy-object]{border:1px solid #c3c8b6;background:#f6f6f1;color:#111}
+.px11-dialog-actions [data-px11-copy-object]:hover,.px11-dialog-actions [data-px11-copy-object]:focus-visible{background:#ccff00;border-color:#ccff00}
+.px11-dialog-actions button:focus-visible{outline:3px solid #1d5cff;outline-offset:3px}
+@media(max-width:600px){.px11-dialog-actions{gap:6px}.px11-dialog-actions button{padding:10px 12px;min-height:44px;font-size:9px}.px8-lab-dialog__head{gap:12px;flex-wrap:wrap}.px11-dialog-actions{width:100%;justify-content:space-between}}
+@media(prefers-reduced-motion:reduce){.px11-dialog-actions button{transition:none}}

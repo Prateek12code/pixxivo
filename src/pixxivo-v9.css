@@ -1,0 +1,493 @@
+/* Pixxivo V9 — publish polish. Designed to preserve V7/V8's visual language. */
+:root {
+  --px9-lime: #ccff00;
+  --px9-ink: #10150e;
+  --px9-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@view-transition {
+  navigation: auto;
+}
+::view-transition-old(root) {
+  animation: px9-page-out 0.12s ease-in both;
+}
+::view-transition-new(root) {
+  animation: px9-page-in 0.22s cubic-bezier(0.2, 0.74, 0.28, 1) both;
+}
+@keyframes px9-page-out {
+  to {
+    opacity: 0.9;
+    filter: blur(1px);
+  }
+}
+@keyframes px9-page-in {
+  from {
+    opacity: 0.86;
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+  }
+}
+/* Original logo, restaged as a one-time session intro. No redundant per-page loaders. */
+.px9-intro {
+  position: fixed;
+  z-index: 2147483600;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  overflow: hidden;
+  background: #0b100c;
+  color: #fbf8ed;
+  opacity: 1;
+  transition:
+    opacity 0.32s ease,
+    visibility 0.32s ease;
+}
+.px9-intro::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background:
+    radial-gradient(
+      ellipse at 55% 46%,
+      rgba(204, 255, 0, 0.2),
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 33% 75%,
+      rgba(29, 92, 255, 0.11),
+      transparent 46%
+    );
+  animation: px9-breathe 5.5s ease-in-out infinite alternate;
+}
+.px9-intro::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(circle, #000, transparent 75%);
+  pointer-events: none;
+}
+.px9-intro__center {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  width: min(420px, calc(100% - 50px));
+}
+.px9-mark {
+  display: block;
+  width: clamp(114px, 21vw, 166px);
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.35));
+}
+.px9-mark path {
+  stroke: #e6f0dc;
+  stroke-width: 7px;
+  stroke-linejoin: round;
+  fill: transparent;
+  path-length: 100;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation:
+    px9-draw 0.86s cubic-bezier(0.2, 0.65, 0.22, 1) both,
+    px9-fill 0.42s ease 0.67s forwards;
+}
+.px9-intro__brand {
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  line-height: 1;
+}
+.px9-intro__meta {
+  font: 750 0.6rem/1.5 var(--px9-mono);
+  letter-spacing: 0.14em;
+  color: #aabca8;
+  text-align: center;
+}
+.px9-intro__progress {
+  height: 2px;
+  width: 180px;
+  max-width: 64vw;
+  overflow: hidden;
+  background: #506046;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+.px9-intro__progress span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: var(--px9-lime);
+  transform-origin: left;
+  animation: px9-progress 1s ease-out both;
+}
+.px9-intro__number {
+  font: 700 0.58rem var(--px9-mono);
+  color: #9cb191;
+  letter-spacing: 0.12em;
+}
+.px9-intro.is-exiting {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+@keyframes px9-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes px9-fill {
+  to {
+    fill: #f6f8f0;
+    stroke: rgba(246, 248, 240, 0.2);
+    stroke-width: 2px;
+  }
+}
+@keyframes px9-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes px9-breathe {
+  to {
+    transform: translate3d(3%, 1%, 0) scale(1.04);
+  }
+}
+/* One carefully centered native dialog layout for desktop, tablet and phones. */
+dialog.px8-lab-dialog,
+dialog.px8-inspect-dialog {
+  position: fixed !important;
+  inset: 0 !important;
+  margin: auto !important;
+  transform: none !important;
+  box-sizing: border-box;
+  max-width: calc(100vw - 24px) !important;
+  max-height: calc(100dvh - 24px) !important;
+  overflow: hidden;
+  overscroll-behavior: contain;
+  border-radius: clamp(17px, 2vw, 28px);
+}
+dialog.px8-lab-dialog:not([open]),
+dialog.px8-inspect-dialog:not([open]) {
+  display: none !important;
+}
+dialog.px8-lab-dialog[open] {
+  display: flex !important;
+  flex-direction: column;
+  width: min(1080px, calc(100vw - 24px));
+  height: auto;
+}
+dialog.px8-inspect-dialog[open] {
+  display: flex !important;
+  flex-direction: column;
+  width: min(1080px, calc(100vw - 24px));
+  height: auto;
+}
+.px8-lab-dialog__head,
+.px8-inspect-dialog__top {
+  flex: none;
+  position: relative;
+  z-index: 2;
+  background: #101710;
+}
+.px8-lab-dialog__grid {
+  min-height: 0;
+  min-width: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  align-items: center;
+}
+.px8-lab-dialog__grid::-webkit-scrollbar {
+  display: none;
+}
+.px8-lab-dialog__image {
+  min-width: 0;
+  align-self: stretch;
+  min-height: 360px;
+}
+.px8-lab-dialog__image img {
+  display: block;
+  max-height: min(60dvh, 590px);
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.px8-lab-dialog__copy {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.px8-lab-dialog__copy h2 {
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+}
+.px8-lab-dialog__copy p,
+.px8-lab-dialog__note {
+  line-height: 1.65;
+}
+.px8-inspect-dialog__stage {
+  min-height: 220px;
+  flex: 1 1 auto;
+  touch-action: none;
+}
+.px8-inspect-dialog__bottom {
+  flex: none;
+}
+/* X1 interactive experiment: meaningful, touch-friendly quick scenarios. */
+.px9-sensing-presets {
+  display: grid;
+  gap: 12px;
+  padding: 16px 0 18px;
+  border-top: 1px solid #121e1422;
+}
+.px9-sensing-presets > span {
+  font: 800 0.64rem/1.5 var(--px9-mono);
+  letter-spacing: 0.11em;
+  color: #354630;
+}
+.px9-sensing-presets__buttons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+}
+.px9-sensing-presets__buttons button {
+  background: #e9eee1;
+  color: #15200e;
+  border: 1px solid #b7c4ad;
+  border-radius: 12px;
+  padding: 12px 7px;
+  min-height: 45px;
+  cursor: pointer;
+  font: 800 0.61rem var(--px9-mono);
+  letter-spacing: 0.06em;
+  transition:
+    background 0.22s,
+    transform 0.22s,
+    color 0.22s;
+}
+.px9-sensing-presets__buttons button[aria-pressed="true"] {
+  background: #11190f;
+  color: var(--px9-lime);
+  border-color: #11190f;
+}
+.px9-sensing-presets__buttons button:hover {
+  transform: translateY(-2px);
+}
+.px9-sensing-presets > p {
+  font-size: 0.79rem;
+  line-height: 1.52;
+  color: #4e5d49;
+  min-height: 2.4em;
+  margin: 0;
+}
+.px8-sensing__screen {
+  box-shadow: 0 22px 40px rgba(15, 20, 11, 0.14);
+}
+.px8-sensing__controls input[type="range"] {
+  accent-color: #86a900;
+  touch-action: pan-y;
+}
+/* Journal: stronger archive identity without pretending to have published articles. */
+body[data-page="journal"] .px4-page-hero {
+  margin-bottom: 15px;
+}
+body[data-page="journal"] .px4-journal-feature {
+  padding-block: clamp(52px, 6vw, 82px);
+}
+.px9-journal-tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  border-top: 1px solid #121c1240;
+  border-bottom: 1px solid #121c1240;
+  padding: 14px 3px;
+  margin-bottom: 21px;
+}
+.px9-journal-tools > span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #575f50;
+  font: 750 0.64rem/1.5 var(--px9-mono);
+  letter-spacing: 0.07em;
+}
+.px9-journal-tools i {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  background: #86b500;
+  border-radius: 99px;
+  box-shadow: 0 0 0 4px rgba(204, 255, 0, 0.22);
+}
+.px9-journal-tools a {
+  color: #1c54c1;
+  font: 800 0.63rem/1.5 var(--px9-mono);
+  border-bottom: 1px solid currentColor;
+  padding: 6px 0;
+  letter-spacing: 0.065em;
+}
+body[data-page="journal"] .pj-empty {
+  width: 100%;
+  min-height: 230px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  gap: 13px;
+  border: 1px solid #17201830;
+  background: #f0eee2;
+  border-radius: 24px;
+  padding: 28px;
+  line-height: 1.6;
+}
+body[data-page="journal"] .pj-empty b {
+  font-size: clamp(1.35rem, 2.5vw, 2.2rem);
+  letter-spacing: -0.025em;
+}
+body[data-page="journal"] .px-post-grid article {
+  border-radius: 22px;
+  overflow: hidden;
+  transition:
+    box-shadow 0.25s,
+    transform 0.25s;
+}
+body[data-page="journal"] .px-post-grid article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px #0001;
+}
+/* Trimmed homepage: rhythm between inspector, system stack, editorial notes, founder, and Dispatch. */
+body[data-page="home"] .px-explorer {
+  margin-bottom: 14px;
+}
+body[data-page="home"] .px6-system {
+  margin-top: 14px;
+}
+body[data-page="home"] .px8-lab-preview {
+  margin-block: 20px;
+}
+/* mobile dialog layout: no unmanaged horizontal scrollers or visible native scroll tracks */
+@media (max-width: 850px) {
+  dialog.px8-lab-dialog[open] {
+    width: min(680px, calc(100vw - 18px));
+    max-width: calc(100vw - 18px) !important;
+    max-height: calc(100dvh - 18px) !important;
+  }
+  dialog.px8-inspect-dialog[open] {
+    width: calc(100vw - 18px);
+    max-width: calc(100vw - 18px) !important;
+    max-height: calc(100dvh - 18px) !important;
+  }
+  .px8-lab-dialog__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 13px;
+    padding: 16px 16px 24px;
+  }
+  .px8-lab-dialog__image {
+    min-height: 0;
+    height: clamp(220px, 36dvh, 330px);
+  }
+  .px8-lab-dialog__image img {
+    height: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  .px8-lab-dialog__copy {
+    gap: 12px;
+    justify-content: start;
+  }
+  .px8-lab-dialog__copy h2 {
+    font-size: clamp(1.65rem, 5.8vw, 2.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+  }
+  .px8-lab-dialog__head {
+    padding: 12px 16px;
+    font-size: 0.59rem;
+    position: sticky;
+    top: 0;
+  }
+  .px8-lab-dialog__head button {
+    min-height: 42px;
+    white-space: nowrap;
+  }
+  .px8-inspect-dialog__top,
+  .px8-inspect-dialog__bottom {
+    padding: 11px 13px;
+    gap: 10px;
+  }
+  .px8-inspect-dialog__stage {
+    height: min(58dvh, 480px);
+  }
+}
+@media (max-width: 520px) {
+  .px8-lab-dialog__image {
+    height: clamp(205px, 33dvh, 300px);
+  }
+  .px8-lab-dialog__grid {
+    padding: 13px 14px 22px;
+  }
+  .px8-lab-dialog__copy > p,
+  .px8-lab-dialog__note {
+    font-size: 0.86rem;
+  }
+  .px8-lab-dialog__copy > a {
+    min-height: 44px;
+    padding-top: 10px;
+  }
+  .px9-journal-tools {
+    flex-direction: column;
+    align-items: start;
+  }
+  .px9-sensing-presets__buttons {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .px9-sensing-presets__buttons button {
+    font-size: 0.54rem;
+    line-height: 1.25;
+    padding-inline: 3px;
+  }
+  .px8-sensing__screen {
+    min-height: 350px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+  .px9-intro::before,
+  .px9-mark path,
+  .px9-intro__progress span {
+    animation: none !important;
+  }
+  .px9-mark path {
+    fill: #f5f7f0;
+    stroke: none;
+    stroke-dashoffset: 0;
+  }
+  .px9-sensing-presets__buttons button {
+    transition: none !important;
+  }
+}
+
+body:has(dialog.px8-lab-dialog[open]),
+body:has(dialog.px8-inspect-dialog[open]) {
+  overflow: hidden;
+}

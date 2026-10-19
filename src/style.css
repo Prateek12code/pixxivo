@@ -3877,3 +3877,7 @@ video {
   font-size: 1.05rem;
   line-height: 1.7;
 }
+
+/* Production contact and social footer links */
+footer .pixxivo-contact-email, footer .pixxivo-instagram{display:inline-flex;align-items:center;font-size:.8rem;font-weight:650;letter-spacing:.01em;white-space:nowrap;opacity:.83;transition:opacity .2s}
+footer .pixxivo-contact-email:hover, footer .pixxivo-instagram:hover{opacity:1;text-decoration:underline}
