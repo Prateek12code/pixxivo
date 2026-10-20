@@ -1,6 +1,8 @@
 import './style.css';
 import './pixxivo-extended.css';
 import './studio-original.css';
+import './studio-v12.css';
+import {initStudioV12} from './studio-v12.js';
 import {supabase,hasSupabaseConfig} from './supabaseClient.js';
 import {escapeHTML as esc,fmtDate,renderBody,safeURL} from './content.js';
 const $=(s,r=document)=>r.querySelector(s);
@@ -237,4 +239,4 @@ $('#studio-login').addEventListener('submit',async e=>{
   await checkAuth();
  }catch(err){authMsg(err.message||'Could not sign in.');}finally{btn.disabled=false;}
 });
-bind();checkAuth();
+bind();initStudioV12({supabase});checkAuth();

@@ -1,4 +1,5 @@
 import "./style.css";
+import "./analytics-tracker.js";
 import "./pixxivo-extended.css";
 import "./pixxivo-motion.css";
 import "./pixxivo-v4.css";
